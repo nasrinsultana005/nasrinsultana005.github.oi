@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Md Razaul Karim | AI Researcher & IT Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:     #0a1628;
+      --ink:      #111827;
+      --slate:    #1e3a5f;
+      --steel:    #2e5b8a;
+      --sky:      #3b82c4;
+      --accent:   #c8973a;
+      --gold:     #e6b84a;
+      --cream:    #f8f4ed;
+      --mist:     #f1f5f9;
+      --text:     #1c2a3a;
+      --sub:      #4a6278;
+      --border:   #d4dde8;
+      --white:    #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 22, 40, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200,151,58,0.25);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--gold); letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 0;
+      padding-top: 64px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-pattern {
+      position: absolute; inset: 0; opacity: 0.035;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, var(--gold) 39px, var(--gold) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, var(--gold) 39px, var(--gold) 40px);
+      pointer-events: none;
+    }
+    .hero-left {
+      padding: 80px 56px 80px 80px;
+      position: relative; z-index: 2;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,151,58,0.12);
+      border: 1px solid rgba(200,151,58,0.35);
+      border-radius: 2px;
+      color: var(--gold); font-size: 0.72rem;
+      font-family: 'DM Mono', monospace; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+    .hero-tag::before { content: '●'; font-size: 0.5rem; }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.1; margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .hero-name span { color: var(--gold); }
+    .hero-title {
+      font-size: 1.05rem; font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.02em; margin-bottom: 32px;
+    }
+    .hero-bio {
+      font-size: 0.95rem; color: rgba(255,255,255,0.7);
+      max-width: 480px; line-height: 1.8; margin-bottom: 40px;
+    }
+    .hero-stats {
+      display: flex; gap: 36px; margin-bottom: 44px;
+    }
+    .stat { display: flex; flex-direction: column; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem; color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      padding: 13px 28px; border-radius: 2px;
+      text-decoration: none; font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8);
+      padding: 13px 28px; border-radius: 2px;
+      text-decoration: none; font-weight: 400; font-size: 0.85rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-right {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 80px 80px 40px;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 40px;
+      width: 100%; max-width: 380px;
+    }
+    .profile-img-wrap {
+      width: 120px; height: 120px; margin: 0 auto 24px;
+      border-radius: 50%; overflow: hidden;
+      border: 3px solid rgba(200,151,58,0.5);
+      background: var(--slate);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-initials {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--gold);
+    }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.83rem; color: rgba(255,255,255,0.65);
+    }
+    .contact-icon {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: rgba(200,151,58,0.15);
+      border-radius: 2px; display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 0.75rem;
+    }
+    .contact-item a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .contact-item a:hover { color: var(--gold); }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 96px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    .section-header { margin-bottom: 56px; }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sky); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700; color: var(--ink); line-height: 1.2;
+    }
+    .section-title span { color: var(--sky); }
+    .section-rule {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--sky));
+      margin-top: 16px; border-radius: 2px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 64px; align-items: start; }
+    .about-text p { font-size: 0.97rem; color: var(--sub); margin-bottom: 18px; line-height: 1.85; }
+    .edu-cards { display: flex; flex-direction: column; gap: 16px; }
+    .edu-card {
+      background: var(--mist); border-left: 3px solid var(--sky);
+      padding: 20px 22px; border-radius: 0 4px 4px 0;
+    }
+    .edu-degree {
+      font-size: 0.82rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .edu-school { font-size: 0.78rem; color: var(--sub); }
+    .edu-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 8px;
+    }
+    .edu-gpa {
+      font-family: 'DM Mono', monospace; font-size: 0.75rem;
+      color: var(--sky); background: rgba(59,130,196,0.1);
+      padding: 2px 8px; border-radius: 2px;
+    }
+    .edu-year { font-size: 0.72rem; color: var(--sub); }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--cream); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .skill-group {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px; padding: 28px;
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .skill-group:hover {
+      box-shadow: 0 8px 32px rgba(10,22,40,0.1);
+      transform: translateY(-2px);
+    }
+    .skill-group::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--sky), var(--accent));
+    }
+    .skill-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--sky); margin-bottom: 14px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      font-size: 0.72rem; color: var(--sub);
+      background: var(--mist); border: 1px solid var(--border);
+      padding: 4px 10px; border-radius: 2px;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--white); }
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 8px; top: 6px; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 48px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: -28px; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--sky);
+      z-index: 1;
+    }
+    .timeline-dot.gold { border-color: var(--gold); }
+    .job-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 4px;
+    }
+    .job-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600; color: var(--ink);
+    }
+    .job-period {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      color: var(--sub); white-space: nowrap; margin-left: 16px;
+    }
+    .job-company { font-size: 0.82rem; color: var(--sky); margin-bottom: 12px; }
+    .job-bullets { list-style: none; }
+    .job-bullets li {
+      font-size: 0.87rem; color: var(--sub);
+      padding: 4px 0 4px 16px; position: relative; line-height: 1.6;
+    }
+    .job-bullets li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--accent); font-size: 0.8rem;
+    }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--navy); }
+    #publications .section-title { color: var(--white); }
+    #publications .section-label { color: var(--gold); }
+    .pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .pub-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px; padding: 24px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pub-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(200,151,58,0.35);
+    }
+    .pub-type {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .pub-type.journal { color: var(--gold); }
+    .pub-type.ieee { color: #4ade80; }
+    .pub-title {
+      font-size: 0.87rem; color: rgba(255,255,255,0.85);
+      line-height: 1.55; font-weight: 400;
+    }
+    .pub-scholar-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 32px; color: var(--gold);
+      text-decoration: none; font-size: 0.82rem; font-weight: 500;
+      border-bottom: 1px solid rgba(200,151,58,0.35);
+      padding-bottom: 2px; transition: border-color 0.2s;
+    }
+    .pub-scholar-link:hover { border-color: var(--gold); }
+
+    /* ── CERTIFICATIONS ── */
+    #certifications { background: var(--cream); }
+    .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .cert-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 4px; padding: 22px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: box-shadow 0.2s;
+    }
+    .cert-card:hover { box-shadow: 0 4px 20px rgba(10,22,40,0.08); }
+    .cert-issuer {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--sky);
+    }
+    .cert-name { font-size: 0.85rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+    .cert-year { font-size: 0.72rem; color: var(--sub); }
+
+    /* ── AWARDS ── */
+    #awards { background: var(--white); }
+    .awards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .award-group-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 18px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .award-list { list-style: none; }
+    .award-list li {
+      font-size: 0.87rem; color: var(--sub);
+      padding: 7px 0 7px 18px; position: relative;
+      border-bottom: 1px dashed var(--border);
+    }
+    .award-list li:last-child { border-bottom: none; }
+    .award-list li::before {
+      content: '★'; position: absolute; left: 0;
+      color: var(--gold); font-size: 0.65rem; top: 10px;
+    }
+
+    /* ── VOLUNTEER ── */
+    #volunteer { background: var(--mist); }
+    .vol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .vol-card {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 20px 22px; border-radius: 4px;
+    }
+    .vol-org { font-weight: 600; font-size: 0.85rem; color: var(--ink); margin-bottom: 6px; }
+    .vol-desc { font-size: 0.78rem; color: var(--sub); line-height: 1.5; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--navy); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-label { color: var(--gold); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-info p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 32px; }
+    .contact-detail-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .cdl-item { display: flex; align-items: center; gap: 14px; }
+    .cdl-icon {
+      width: 36px; height: 36px; background: rgba(200,151,58,0.15);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 2px; display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 0.8rem; flex-shrink: 0;
+    }
+    .cdl-label { font-size: 0.68rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+    .cdl-value { font-size: 0.87rem; color: rgba(255,255,255,0.75); }
+    .cdl-value a { color: rgba(255,255,255,0.75); text-decoration: none; }
+    .cdl-value a:hover { color: var(--gold); }
+    .refs-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px; padding: 32px;
+    }
+    .refs-title {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .ref-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .ref-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .ref-name { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .ref-role { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .ref-email { font-size: 0.78rem; color: var(--gold); margin-top: 6px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060e1b;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center; padding: 28px 48px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.3);
+      font-family: 'DM Mono', monospace; letter-spacing: 0.04em;
+    }
+    footer a { color: rgba(200,151,58,0.6); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 60px 32px 40px; }
+      .hero-right { padding: 0 32px 60px; }
+      .about-grid, .contact-grid, .awards-grid { grid-template-columns: 1fr; gap: 40px; }
+      .skills-grid, .cert-grid, .vol-grid { grid-template-columns: 1fr 1fr; }
+      .pub-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .container { padding: 0 24px; }
+    }
+    @media (max-width: 600px) {
+      .skills-grid, .cert-grid, .vol-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .nav-links { display: none; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-brand" href="#hero">Razaul Karim</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-left">
+      <div class="hero-tag">AI &amp; Machine Learning Researcher</div>
+      <h1 class="hero-name">Md Razaul<br><span>Karim</span></h1>
+      <p class="hero-title">IT Management · Data Analytics · Electrical Engineering</p>
+      <p class="hero-bio">
+        Results-driven IT and Engineering professional with expertise in AI, Machine Learning, Data Analytics,
+        and Electrical Systems. Currently pursuing an M.S. in IT Management (GPA: 3.77/4.0) with hands-on
+        experience across industrial engineering, automation, and IT infrastructure.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">11</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">150+</span>
+          <span class="stat-label">Citations</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3.77</span>
+          <span class="stat-label">GPA / 4.0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">8+</span>
+          <span class="stat-label">Years Exp.</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary" href="Resume_for_Karim.pdf" download>
+          ↓ Download CV
+        </a>
+        <a class="btn-ghost" href="https://scholar.google.com/citations?user=ZNYjhUUAAAAJ&hl=en" target="_blank">
+          Google Scholar ↗
+        </a>
+        <a class="btn-ghost" href="https://linkedin.com/in/razaul-karim-86a3a9239" target="_blank">
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="profile-img-wrap">
+          <!-- Replace profile.jpg with your actual image file -->
+          <img src="profile.jpg" alt="Md Razaul Karim"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="profile-initials" style="display:none;">MK</div>
+        </div>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-bottom:2px;">Email</div>
+              <a href="mailto:razaulkarim.bubt@gmail.com">razaulkarim.bubt@gmail.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">☎</div>
+            <div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-bottom:2px;">Phone</div>
+              +1 863-458-5722
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-bottom:2px;">Location</div>
+              Allison Park, PA 15101, USA
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">🎓</div>
+            <div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-bottom:2px;">Institution</div>
+              University of the Potomac, USA
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-bottom:2px;">Languages</div>
+              English · Hindi · Bangla (Native)
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Background</div>
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p>
+            I am a researcher and engineer at the intersection of Artificial Intelligence, Cybersecurity,
+            and Industrial Systems. My academic journey spans two continents — beginning with a B.S. in
+            Electrical &amp; Electronics Engineering in Dhaka, Bangladesh, and continuing with an M.S. in
+            IT Management in the United States (expected 2026).
+          </p>
+          <p>
+            My research is published across 11 peer-reviewed journals and IEEE conferences, accumulating
+            over 150 citations. Topics include machine learning for intrusion detection, multimodal AI for
+            misinformation detection, adaptive education systems, and AI-enhanced network security for 6G.
+          </p>
+          <p>
+            Beyond academia, I have practical field experience managing industrial electrical infrastructure,
+            PLC/HMI/VFD systems, IT networks, and production engineering — giving me a rare ability to
+            bridge hardware-level engineering with modern AI-driven software solutions.
+          </p>
+          <p>
+            I am also a Peer Reviewer for the <em>International Journal of Applied Mathematics (IJAM)</em>
+            and a former national-level competitive footballer, bringing discipline and team-leadership
+            to everything I do.
+          </p>
+        </div>
+        <div class="edu-cards fade-in">
+          <div class="edu-card">
+            <div class="edu-degree">M.S. — Information Technology Management</div>
+            <div class="edu-school">University of the Potomac, USA</div>
+            <div class="edu-meta">
+              <span class="edu-gpa">GPA 3.77 / 4.0</span>
+              <span class="edu-year">2023 – 2026</span>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-degree">B.S. — Electrical &amp; Electronics Engineering</div>
+            <div class="edu-school">Bangladesh University of Business and Technology</div>
+            <div class="edu-meta">
+              <span class="edu-gpa">CGPA 3.32 / 4.0</span>
+              <span class="edu-year">Sept 2014 – Jan 2018</span>
+            </div>
+          </div>
+          <div class="edu-card" style="border-left-color: var(--accent);">
+            <div class="edu-degree">Peer Reviewer</div>
+            <div class="edu-school">International Journal of Applied Mathematics (IJAM)</div>
+            <div class="edu-meta">
+              <span class="edu-gpa" style="color:var(--accent);background:rgba(200,151,58,0.1);">Active</span>
+              <span class="edu-year">2025 – Present</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Technical Expertise</div>
+        <h2 class="section-title">Skills &amp; <span>Tools</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group fade-in">
+          <div class="skill-cat">AI &amp; Machine Learning</div>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span>
+            <span class="skill-tag">Scikit-learn</span><span class="skill-tag">AutoML</span>
+            <span class="skill-tag">MLflow</span><span class="skill-tag">CNN</span>
+            <span class="skill-tag">RNN / LSTM</span><span class="skill-tag">LLMs (GPT, BERT, T5)</span>
+            <span class="skill-tag">NLP</span><span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Reinforcement Learning</span>
+            <span class="skill-tag">ARIMA / SARIMA / Prophet</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-cat">Programming &amp; Data Science</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span><span class="skill-tag">R</span>
+            <span class="skill-tag">SAS</span><span class="skill-tag">SQL</span>
+            <span class="skill-tag">Java</span><span class="skill-tag">C / C++</span>
+            <span class="skill-tag">Bash</span><span class="skill-tag">EDA</span>
+            <span class="skill-tag">Feature Engineering</span>
+            <span class="skill-tag">Predictive Modeling</span>
+            <span class="skill-tag">Statistical Analysis</span>
+            <span class="skill-tag">Data Mining</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-cat">Cloud &amp; Big Data</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span><span class="skill-tag">Microsoft Azure</span>
+            <span class="skill-tag">Google Cloud</span><span class="skill-tag">Apache Spark</span>
+            <span class="skill-tag">Hadoop</span><span class="skill-tag">BigQuery</span>
+            <span class="skill-tag">Databricks</span><span class="skill-tag">ETL Pipelines</span>
+            <span class="skill-tag">Data Lakes</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-cat">BI &amp; Visualization</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Google Data Studio</span><span class="skill-tag">Excel</span>
+            <span class="skill-tag">SAS Visual Analytics</span>
+            <span class="skill-tag">IBM Cognos</span><span class="skill-tag">Google Analytics</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-cat">Project Management</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Jira</span><span class="skill-tag">Trello</span>
+            <span class="skill-tag">Asana</span><span class="skill-tag">Microsoft Project</span>
+            <span class="skill-tag">Monday.com</span><span class="skill-tag">Smartsheet</span>
+            <span class="skill-tag">Agile / Scrum</span><span class="skill-tag">Kanban</span>
+            <span class="skill-tag">Git &amp; GitHub</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-cat">Industrial &amp; ERP</div>
+          <div class="skill-tags">
+            <span class="skill-tag">SAP</span><span class="skill-tag">Salesforce</span>
+            <span class="skill-tag">PLC Systems</span><span class="skill-tag">HMI</span>
+            <span class="skill-tag">VFD Systems</span>
+            <span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MS SQL Server</span>
+            <span class="skill-tag">GDPR &amp; CCPA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Career History</div>
+        <h2 class="section-title">Work <span>Experience</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot gold"></div>
+          <div class="job-header">
+            <div class="job-title">Knight Watch Driver / Dispatcher</div>
+            <span class="job-period">Aug 2022 – Aug 2023</span>
+          </div>
+          <div class="job-company">Gannon University, USA</div>
+          <ul class="job-bullets">
+            <li>Safely transported students between campus and off-campus locations, ensuring punctual and secure travel.</li>
+            <li>Managed real-time communication via radio and telephone systems to coordinate dispatch operations.</li>
+            <li>Supported scheduling, routing, and vehicle-assignment coordination to ensure timely service delivery.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="job-header">
+            <div class="job-title">Assistant Engineer</div>
+            <span class="job-period">May 2019 – Jul 2021</span>
+          </div>
+          <div class="job-company">Blue Seal Textiles, Rising Group — Dhaka, Bangladesh</div>
+          <ul class="job-bullets">
+            <li>Maintained and troubleshot industrial electrical systems including boilers, chillers, generators, and production machinery.</li>
+            <li>Worked with PLC, HMI, and VFD systems, assisting in automation control and production efficiency improvements.</li>
+            <li>Operated multiple industrial software systems: Easy Payroll, biometric attendance, CCTV, and fingerprint access control.</li>
+            <li>Maintained detailed records of spare parts, maintenance logs, and repair activities.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="job-header">
+            <div class="job-title">Executive — Industrial Engineering (IE)</div>
+            <span class="job-period">Jan 2014 – Apr 2019</span>
+          </div>
+          <div class="job-company">Baro Shimul Industries Pvt. Ltd. — Dhaka, Bangladesh</div>
+          <ul class="job-bullets">
+            <li>Conducted time &amp; motion studies, SMV calculations, and production layout planning for manpower and hourly targets.</li>
+            <li>Balanced production lines by resolving bottlenecks, improving line efficiency and capacity utilization.</li>
+            <li>Installed and maintained LAN, WAN, and intranet network systems across departments.</li>
+            <li>Performed hardware troubleshooting, CCTV support, malware checks, and basic network security monitoring.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="job-header">
+            <div class="job-title">Intern — Telecommunications</div>
+            <span class="job-period">Oct 2012 – Jan 2013</span>
+          </div>
+          <div class="job-company">Grameenphone Ltd. — Dhaka, Bangladesh</div>
+          <ul class="job-bullets">
+            <li>Assisted inspection and preventive maintenance of telecommunications tower infrastructure.</li>
+            <li>Supported installation and configuration of wiring systems, panel boards, and telecom hardware.</li>
+            <li>Maintained technical documentation, site reports, and maintenance logs for compliance tracking.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PUBLICATIONS ── -->
+  <section id="publications">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Research Output</div>
+        <h2 class="section-title">Publications &amp; <span style="color:var(--gold)">Research</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="pub-grid">
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Optimizing Customer Segmentation in the Banking Sector: A Comparative Analysis of Machine Learning Algorithms</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Optimizing Real-Time Dynamic Pricing Strategies in Retail and E-Commerce Using Machine Learning Models</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Enhancing Signature-Based Intrusive Detection System (IDS) for IoT Networks Using Machine Learning Algorithm</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Detecting Misinformation with Multimodal AI: Leveraging Vision and NLP for Fact-Checking</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">AI-Enhanced Adaptive Network Security for 6G and Edge Computing</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Leveraging Machine Learning and NLP for Adaptive Education Systems: A Personalized Approach for Children</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Driving Industry 4.0 with Digital Twins: Enhancing Predictive Maintenance and Operational Performance</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Towards a Serverless Intelligent Firewall: AI-Driven Security and Zero-Trust Architectures</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Attention-Enhanced U-Net Models for Breast Cancer Image Analysis: A Comparative Study</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type journal">● Journal Article</div>
+          <div class="pub-title">Enhanced Brain Tumor Detection Using Finetuned Transfer Learning Models: Achieving Superior Accuracy with Xception</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type ieee">● IEEE Conference (Accepted) — First Author</div>
+          <div class="pub-title">A Fusion of Artificial Neural Networks and Decision Trees for Robust Detection of Imbalanced DDoS Attacks</div>
+        </div>
+        <div class="pub-card fade-in">
+          <div class="pub-type ieee">● IEEE Conference (Accepted) — Co-Author</div>
+          <div class="pub-title">A Secure Privacy Transfer Framework in Digital Forensics for Protecting Sensitive Data</div>
+        </div>
+      </div>
+      <div style="margin-top:36px;">
+        <a class="pub-scholar-link fade-in"
+           href="https://scholar.google.com/citations?user=ZNYjhUUAAAAJ&hl=en" target="_blank">
+          View Full Profile on Google Scholar &nbsp;↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Professional Development</div>
+        <h2 class="section-title">Certifications &amp; <span>Courses</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">DeepLearning.AI · Stanford · Coursera</div>
+          <div class="cert-name">Supervised Machine Learning: Regression and Classification</div>
+          <div class="cert-year">March 2026</div>
+        </div>
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">University of Pennsylvania · Coursera</div>
+          <div class="cert-name">Statistics for Data Science Essentials</div>
+          <div class="cert-year">March 2026</div>
+        </div>
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">Google · Coursera</div>
+          <div class="cert-name">AI Fundamentals</div>
+          <div class="cert-year">2025</div>
+        </div>
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">Coursera</div>
+          <div class="cert-name">Machine Learning Specialization</div>
+          <div class="cert-year">2025</div>
+        </div>
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">Coursera</div>
+          <div class="cert-name">Business Analytics</div>
+          <div class="cert-year">2024</div>
+        </div>
+        <div class="cert-card fade-in">
+          <div class="cert-issuer">Optimal IT / Bangladesh Hi-Tech Park Authority</div>
+          <div class="cert-name">Magento E-Commerce Development (80 hours)</div>
+          <div class="cert-year">April 2016</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AWARDS ── -->
+  <section id="awards">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Recognition</div>
+        <h2 class="section-title">Awards &amp; <span>Achievements</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="awards-grid">
+        <div class="fade-in">
+          <div class="award-group-title">🤖 Academic &amp; Robotics (BUBT EEE Club, 2014–2018)</div>
+          <ul class="award-list">
+            <li>Champion — International Robotics Contest, IIT Kanpur 2016</li>
+            <li>Top 3 in 8+ national competitions (BUET, CUET, DUET, IUT, RUET tech fests)</li>
+            <li>Won multiple national and international robotics competitions</li>
+            <li>Co-organized EEE Day 2017 — student innovation showcase</li>
+            <li>Contributed to organizing the Electrical &amp; Electronic Olympiad</li>
+          </ul>
+        </div>
+        <div class="fade-in">
+          <div class="award-group-title">⚽ Professional Football (2009–2018)</div>
+          <ul class="award-list">
+            <li>Professional Footballer — Dhaka Mariner's Young Club</li>
+            <li>Competed in multiple top-tier competitive leagues across Bangladesh</li>
+            <li>Multiple "Man of the Match" awards for individual performance</li>
+            <li>Recognized for teamwork, leadership, and match-winning contributions</li>
+            <li>Maintained exceptional physical fitness and competitive mindset throughout career</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VOLUNTEER ── -->
+  <section id="volunteer">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Community</div>
+        <h2 class="section-title">Volunteer <span>Experience</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="vol-grid">
+        <div class="vol-card fade-in">
+          <div class="vol-org">Bangladesh Red Crescent Society (BDRCS)</div>
+          <div class="vol-desc">Disaster response, community health programs, and public awareness campaigns.</div>
+        </div>
+        <div class="vol-card fade-in">
+          <div class="vol-org">Quantum Foundation</div>
+          <div class="vol-desc">Organized blood donation drives and public health awareness events.</div>
+        </div>
+        <div class="vol-card fade-in">
+          <div class="vol-org">JAAGO Foundation</div>
+          <div class="vol-desc">Education and youth empowerment program planning and implementation.</div>
+        </div>
+        <div class="vol-card fade-in">
+          <div class="vol-org">Transparency International Bangladesh (TIB)</div>
+          <div class="vol-desc">Advocacy and community engagement for anti-corruption initiatives.</div>
+        </div>
+        <div class="vol-card fade-in">
+          <div class="vol-org">Career Development Center (CDC)</div>
+          <div class="vol-desc">Supported career guidance workshops and networking events.</div>
+        </div>
+        <div class="vol-card fade-in">
+          <div class="vol-org">EEE Club — BUBT</div>
+          <div class="vol-desc">Active club member contributing to technical events and competitions.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">Contact &amp; <span style="color:var(--gold)">References</span></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <p>
+            I am open to research collaborations, academic partnerships, and professional
+            opportunities in AI, Machine Learning, Data Analytics, and IT Management.
+            Feel free to reach out via any of the channels below.
+          </p>
+          <ul class="contact-detail-list">
+            <li class="cdl-item">
+              <div class="cdl-icon">✉</div>
+              <div>
+                <div class="cdl-label">Email</div>
+                <div class="cdl-value">
+                  <a href="mailto:razaulkarim.bubt@gmail.com">razaulkarim.bubt@gmail.com</a>
+                </div>
+              </div>
+            </li>
+            <li class="cdl-item">
+              <div class="cdl-icon">☎</div>
+              <div>
+                <div class="cdl-label">Phone</div>
+                <div class="cdl-value">+1 863-458-5722</div>
+              </div>
+            </li>
+            <li class="cdl-item">
+              <div class="cdl-icon">in</div>
+              <div>
+                <div class="cdl-label">LinkedIn</div>
+                <div class="cdl-value">
+                  <a href="https://linkedin.com/in/razaul-karim-86a3a9239" target="_blank">linkedin.com/in/razaul-karim-86a3a9239</a>
+                </div>
+              </div>
+            </li>
+            <li class="cdl-item">
+              <div class="cdl-icon">GS</div>
+              <div>
+                <div class="cdl-label">Google Scholar</div>
+                <div class="cdl-value">
+                  <a href="https://scholar.google.com/citations?user=ZNYjhUUAAAAJ&hl=en" target="_blank">View Scholar Profile</a>
+                </div>
+              </div>
+            </li>
+            <li class="cdl-item">
+              <div class="cdl-icon">📍</div>
+              <div>
+                <div class="cdl-label">Address</div>
+                <div class="cdl-value">9410 Babcock Blvd, Allison Park, PA 15101</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="refs-box fade-in">
+          <div class="refs-title">Academic References</div>
+          <div class="ref-item">
+            <div class="ref-name">Dr. Frederick L. Fisher II</div>
+            <div class="ref-role">School of Business<br>University of the Potomac<br>1401 H St NW Suite 100, Washington, DC 20001</div>
+            <div class="ref-email">frederick.fisher@potomac.edu</div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-name">Prof. Henry A. McKelvey</div>
+            <div class="ref-role">Adjunct Professor – CS, Cybersecurity &amp; Information Systems<br>University of the Potomac<br>7799 Leesburg Pike, Suite 200, Falls Church, VA 22043</div>
+            <div class="ref-email">henry.mckelvey@potomac.edu · 301-653-7992</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    © 2026 Md Razaul Karim &nbsp;·&nbsp;
+    <a href="mailto:razaulkarim.bubt@gmail.com">razaulkarim.bubt@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/razaul-karim-86a3a9239" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="https://scholar.google.com/citations?user=ZNYjhUUAAAAJ&hl=en" target="_blank">Google Scholar</a>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 90) current = sec.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current
+          ? 'var(--gold)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
